@@ -1,4 +1,8 @@
-# xofttion-utils
+# @xofttion-store
 
-Utility library compatible with Typescript projects.
-Author: Daniel Andrés Castillo Pedroza
+Library to manage data state in a simple way.
+
+<p>
+  <b>Author:</b> Daniel Andrés Castillo Pedroza
+</p>
+

@@ -38,7 +38,8 @@
     }
   ],
   "peerDependencies": {
-    "rxjs": "~7.5.0"
+    "rxjs": "~7.5.0",
+    "@xofttion/utils": "^1.0.0"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.0.0",
