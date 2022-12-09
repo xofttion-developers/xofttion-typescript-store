@@ -1,6 +1,6 @@
 {
   "name": "@xofttion/store",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "author": "Daniel Andrés Castillo Pedroza",
   "license": "MIT",
   "main": "dist/index.js",
@@ -15,10 +15,8 @@
     "test": "jest",
     "launch": "ts-node index.ts"
   },
-  "dependencies": {
-    "@xofttion/utils": "^4.0.0"
-  },
   "peerDependencies": {
+    "@xofttion/utils": "^4.0.1",
     "rxjs": "~7.5.0"
   },
   "devDependencies": {
