@@ -1,14 +1,14 @@
 {
   "name": "@xofttion/store",
-  "version": "4.0.2",
+  "type": "module",
+  "version": "4.0.3",
   "author": "Daniel Andrés Castillo Pedroza",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "module": "dist/xofttion-store.esm.js",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
@@ -16,7 +16,7 @@
     "launch": "ts-node index.ts"
   },
   "peerDependencies": {
-    "@xofttion/utils": "^4.0.1",
+    "@xofttion/utils": "^4.0.3",
     "rxjs": "~7.5.0"
   },
   "devDependencies": {
