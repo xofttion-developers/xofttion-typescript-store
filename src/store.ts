@@ -24,7 +24,7 @@ class State<T extends StateObject> {
   }
 
   public select<V>(selector: (_: T) => V): V {
-    return selector(this._subject.value);
+    return selector({ ...this._subject.value });
   }
 
   public observe(): Observable<T> {
