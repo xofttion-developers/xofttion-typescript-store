@@ -5,14 +5,14 @@ import { map } from 'rxjs/operators';
 type StateObject = { [key: string]: any };
 
 class State<T extends StateObject> {
-  private _subject: BehaviorSubject<T>;
+  private subject: BehaviorSubject<T>;
 
   constructor(private _initialValue: T) {
-    this._subject = new BehaviorSubject(deepFreeze(this._initialValue));
+    this.subject = new BehaviorSubject(deepFreeze(this._initialValue));
   }
 
   public getCurrent(): T {
-    return this._subject.value;
+    return this.subject.value;
   }
 
   public reset(): void {
@@ -20,15 +20,15 @@ class State<T extends StateObject> {
   }
 
   public reduce(reducer: (_: T) => T): void {
-    this._subject.next(deepFreeze(reducer(this._subject.value)));
+    this.subject.next(deepFreeze(reducer(this.subject.value)));
   }
 
   public select<V>(selector: (_: T) => V): V {
-    return selector({ ...this._subject.value });
+    return selector({ ...this.subject.value });
   }
 
   public observe(): Observable<T> {
-    return this._subject.asObservable();
+    return this.subject.asObservable();
   }
 
   public subscribe(subscriber: (_: T) => void): Subscription {
