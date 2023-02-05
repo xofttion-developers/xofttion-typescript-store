@@ -1,6 +1,5 @@
 import { deepFreeze } from '@xofttion/utils';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, map, Observable, Subscription } from 'rxjs';
 
 type StateObject = { [key: string]: any };
 
