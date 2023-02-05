@@ -7,8 +7,8 @@ type StateObject = { [key: string]: any };
 class State<T extends StateObject> {
   private subject: BehaviorSubject<T>;
 
-  constructor(private _initialValue: T) {
-    this.subject = new BehaviorSubject(deepFreeze(this._initialValue));
+  constructor(private initialValue: T) {
+    this.subject = new BehaviorSubject(deepFreeze(this.initialValue));
   }
 
   public getCurrent(): T {
@@ -16,7 +16,7 @@ class State<T extends StateObject> {
   }
 
   public reset(): void {
-    this.reduce(() => this._initialValue);
+    this.reduce(() => this.initialValue);
   }
 
   public reduce(reducer: (_: T) => T): void {
