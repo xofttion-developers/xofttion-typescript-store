@@ -1,11 +1,11 @@
 {
   "name": "@xofttion/store",
   "type": "commonjs",
-  "version": "4.9.4",
+  "version": "4.9.6",
   "author": "Daniel Andrés Castillo Pedroza",
   "license": "MIT",
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "main": "store.js",
+  "typings": "store.d.ts",
   "module": "xofttion-store.esm.js",
   "scripts": {
     "publish": "npm run build && cd artifact && npm publish",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/jest": "^28.1.8",
     "@types/mocha": "^10.0.0",
+    "@xofttion/types": "^4.9.1",
     "jest": "^28.1.3",
     "ts-jest": "^28.0.7",
     "tslib": "^2.4.0",
