@@ -1,11 +1,11 @@
 {
   "name": "@xofttion/store",
   "type": "commonjs",
-  "version": "4.9.5",
+  "version": "4.9.6",
   "author": "Daniel Andrés Castillo Pedroza",
   "license": "MIT",
-  "main": "index.js",
-  "typings": "index.d.ts",
+  "main": "store.js",
+  "typings": "store.d.ts",
   "module": "xofttion-store.esm.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
