@@ -14,7 +14,7 @@ function removeFiles(folderPath) {
 
       if (fs.lstatSync(filePath).isDirectory()) {
         removeFiles(filePath);
-        rimraf.sync(filePath);
+        fs.rmdirSync(filePath);
 
         return false;
       }
