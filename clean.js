@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const rimraf = require('rimraf');
 
 const folderPath = path.join(__dirname, 'artifact');
 const extensions = ['.ts', '.js', '.map'];

@@ -1,12 +1,12 @@
 {
   "name": "@xofttion/store",
   "type": "commonjs",
-  "version": "4.9.7",
+  "version": "4.9.8",
   "author": "Daniel Andrés Castillo Pedroza",
   "license": "MIT",
   "main": "store.js",
   "typings": "store.d.ts",
-  "module": "xofttion-store.esm.js",
+  "module": "store.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "clean": "node clean.js",
@@ -15,7 +15,7 @@
     "publish": "npm run clean && npm run build && cd artifact && npm publish"
   },
   "dependencies": {
-    "@xofttion/utils": "^4.9.15",
+    "@xofttion/utils": "^4.9.19",
     "rxjs": "^7.5.0"
   },
   "devDependencies": {
