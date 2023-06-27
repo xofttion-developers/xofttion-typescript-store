@@ -18,11 +18,11 @@ class State<T extends StateObject> {
     this.reduce(() => this.initialValue);
   }
 
-  public reduce(reducer: (_: T) => T): void {
+  public reduce(reducer: (value: T) => T): void {
     this.subject.next(deepFreeze(reducer(this.subject.value)));
   }
 
-  public select<V>(selector: (_: T) => V): V {
+  public select<V>(selector: (value: T) => V): V {
     return selector({ ...this.subject.value });
   }
 
@@ -30,12 +30,20 @@ class State<T extends StateObject> {
     return this.subject.asObservable();
   }
 
-  public subscribe(subscriber: (_: T) => void): Subscription {
+  public subscribe(subscriber: (value: T) => void): Subscription {
     return this.observe().subscribe(subscriber);
   }
 }
 
-export class Store<T extends StateObject> {
+export interface AbstractStore<T extends StateObject> {
+  getCurrent(): T;
+
+  reset(): void;
+
+  subscribe(subscriber: (value: T) => void): Subscription;
+}
+
+export class Store<T extends StateObject> implements AbstractStore<T> {
   private state: State<T>;
 
   constructor(value: T) {
@@ -50,19 +58,19 @@ export class Store<T extends StateObject> {
     this.state.reset();
   }
 
-  protected reduce(reducer: (_: T) => T): void {
+  public subscribe(subscriber: (value: T) => void): Subscription {
+    return this.state.subscribe(subscriber);
+  }
+
+  protected reduce(reducer: (value: T) => T): void {
     this.state.reduce(reducer);
   }
 
-  protected select<V>(selector: (_: T) => V): V {
+  protected select<V>(selector: (value: T) => V): V {
     return this.state.select(selector);
   }
 
-  protected observe<V>(observer: (_: T) => V): Observable<V> {
+  protected observe<V>(observer: (value: T) => V): Observable<V> {
     return this.state.observe().pipe(map((state) => observer(state)));
-  }
-
-  public subscribe(subscriber: (_: T) => void): Subscription {
-    return this.state.subscribe(subscriber);
   }
 }
