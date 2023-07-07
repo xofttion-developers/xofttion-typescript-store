@@ -18,8 +18,14 @@ class State<T extends StateObject> {
     this.reduce(() => this.initialValue);
   }
 
-  public reduce(reducer: (value: T) => T): void {
-    this.subject.next(deepFreeze(reducer(this.subject.value)));
+  public reduce(reducer: (value: T) => T): boolean {
+    try {
+      this.subject.next(deepFreeze(reducer(this.subject.value)));
+
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   public select<V>(selector: (value: T) => V): V {
@@ -62,8 +68,8 @@ export class Store<T extends StateObject> implements AbstractStore<T> {
     return this.state.subscribe(subscriber);
   }
 
-  protected reduce(reducer: (value: T) => T): void {
-    this.state.reduce(reducer);
+  protected reduce(reducer: (value: T) => T): boolean {
+    return this.state.reduce(reducer);
   }
 
   protected select<V>(selector: (value: T) => V): V {
