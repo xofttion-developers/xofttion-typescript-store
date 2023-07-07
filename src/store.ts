@@ -41,12 +41,12 @@ class State<T extends StateObject> {
   }
 }
 
-export interface AbstractStore<T extends StateObject> {
-  getCurrent(): T;
+export abstract class AbstractStore<T extends StateObject> {
+  abstract getCurrent(): T;
 
-  reset(): void;
+  abstract reset(): void;
 
-  subscribe(subscriber: (value: T) => void): Subscription;
+  abstract subscribe(subscriber: (value: T) => void): Subscription;
 }
 
 export class Store<T extends StateObject> implements AbstractStore<T> {
