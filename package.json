@@ -1,7 +1,7 @@
 {
   "name": "@xofttion/store",
   "type": "commonjs",
-  "version": "4.9.11",
+  "version": "4.9.12",
   "author": "Daniel Andrés Castillo Pedroza",
   "license": "MIT",
   "main": "store.js",
@@ -15,7 +15,7 @@
     "publish": "npm run clean && npm run build && cd artifact && npm publish"
   },
   "dependencies": {
-    "@xofttion/utils": "^4.9.27",
+    "@xofttion/utils": "^4.9.29",
     "rxjs": "^7.5.0"
   },
   "devDependencies": {
